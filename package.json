@@ -1,0 +1,59 @@
+{
+  "name": "open-in-idea",
+  "displayName": "Open in IDEA",
+  "description": "Open current workspace and open files in IntelliJ IDEA",
+  "icon": "icon.png",
+  "version": "0.0.1",
+  "publisher": "nnutter",
+  "repository": "https://github.com/nnutter/open-in-idea",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.openInIDEA"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.openInIDEA",
+        "title": "Open in IDEA"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Open in IDEA",
+      "properties": {
+        "openInIDEA.launcherPath": {
+          "type": "string",
+          "default": "idea",
+          "description": "Path to IntelliJ IDEA launcher (e.g., 'idea', '/Applications/IntelliJ IDEA.app/Contents/MacOS/idea', or 'C:\\\\Program Files\\\\JetBrains\\\\IntelliJ IDEA\\\\bin\\\\idea64.exe')."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "extension.openInIDEA",
+        "key": "ctrl+alt+i",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "package": "vsce package",
+    "install-extension": "code --install-extension *.vsix",
+    "clean": "rm -rf out *.vsix"
+  },
+  "devDependencies": {
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^3.6.0",
+    "typescript": "^5.0.0",
+    "vscode-test": "^1.6.0"
+  }
+}

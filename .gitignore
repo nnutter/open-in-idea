@@ -1,0 +1,9 @@
+*.vsix
+.DS_Store
+.idea/
+.vscode/settings.json
+node_modules/
+out/
+src/*.d.ts
+src/*.js
+src/*.map
